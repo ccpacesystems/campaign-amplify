@@ -5,5 +5,19 @@
       "type": "cicd",
       "lastPushTimeStamp": "2021-10-12T16:16:04.121Z"
     }
+  },
+  "auth": {
+    "campaignappfbc14af2": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "campaignapp": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

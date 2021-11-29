@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
     {
         path: '', component: AppComponent,
         children: [
-            {path: '', component: CampaignsComponent},
+            {path: '', component: CampaignsComponent, canActivate: [AuthGuard]},
            
         ]
     },

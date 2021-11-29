@@ -1,0 +1,7 @@
+{
+    "tableName": "campaignapp",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S",
+    "sortKeyName": "party",
+    "sortKeyType": "S"
+}
