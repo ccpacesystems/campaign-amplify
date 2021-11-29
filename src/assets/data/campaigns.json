@@ -1,0 +1,16 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"party": "Republican",
+			"name": "Campaign 1",
+			"description": "Republican party Campaign 1"
+		},
+		{
+			"id": "1001",
+			"party": "Democrat",
+			"name": "Campaign 2",
+			"description": "Democratic party Campaign 2"
+		}
+	]
+}
