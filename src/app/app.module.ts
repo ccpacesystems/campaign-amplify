@@ -14,6 +14,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmationService } from 'primeng/api';
+import {ToastModule} from 'primeng/toast';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -41,6 +42,7 @@ import { CampaignsComponent } from './campaigns/campaigns.component';
         InputNumberModule,
         InputTextareaModule,
         RadioButtonModule,
+        ToastModule,
         ButtonModule,
         AmplifyUIAngularModule,
         AppRoutingModule

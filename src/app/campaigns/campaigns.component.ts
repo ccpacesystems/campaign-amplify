@@ -14,7 +14,7 @@ export class CampaignsComponent implements OnInit {
 
     campaignDialog: boolean;
 
-    campaigns: Campaign[];
+    campaigns: Campaign[]=[];
 
     campaign: Campaign;
 
@@ -42,9 +42,9 @@ export class CampaignsComponent implements OnInit {
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 this.campaigns = this.campaigns.filter(val => !this.selectedCampaigns.includes(val));
-                // this.selectedCampaigns.forEach(element => {
-                //     this.campaignService.deleteCampaign(element.id, element.party)
-                // }); 
+                this.selectedCampaigns.forEach(element => {
+                    this.campaignService.deleteCampaign(element.id, element.party)
+                }); 
                 this.selectedCampaigns = null;
                 this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaigns Deleted', life: 3000});
             }
@@ -64,7 +64,7 @@ export class CampaignsComponent implements OnInit {
             accept: () => {
                 this.campaigns = this.campaigns.filter(val => val.id !== campaign.id);
                 this.campaign = {};
-                //this.campaignService.deleteCampaign(campaign.id, campaign.party)
+                this.campaignService.deleteCampaign(campaign.id, campaign.party)
                 this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
             }
         });
@@ -100,17 +100,17 @@ export class CampaignsComponent implements OnInit {
 
     //     if (this.campaign.name.trim()) {
     //         if (this.campaign.id) {
-    //             this.campaignService.saveCampaign(this.campaign).then(data => {
-    //                 this.campaigns[this.findIndexById(this.campaign.id)] = this.campaign;                             
+    //             this.campaigns[this.findIndexById(this.campaign.id)] = this.campaign;             
+    //             this.campaignService.saveCampaign(this.campaign).then(data => {                                    
     //                 this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaign Updated', life: 3000});
     //             }).catch(err => {
     //                 console.log(err);
     //               });                
     //         }
     //         else {
-    //             this.campaign.id = uuid();
-    //             this.campaigns.push(this.campaign);
-    //             this.campaignService.saveCampaign(this.campaign).then(data => {                                        
+    //             this.campaign.id = uuid();                
+    //             this.campaigns.push(this.campaign); 
+    //             this.campaignService.saveCampaign(this.campaign).then(data => {                                                          
     //                 this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaign Created', life: 3000});
     //             }).catch(err => {
     //                 this.campaigns.pop();

@@ -1,8 +1,11 @@
 {
-  "dev": {
-    "awscloudformation": {
-    },
-    "categories": {
-    }
-  }
+    "dev": {
+      "awscloudformation": {
+      },
+      "categories": {
+        },
+        "auth": {
+        }
+      }
 }
+  

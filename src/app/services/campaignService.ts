@@ -10,8 +10,7 @@ export class CampaignService {
     partyNames: string[] = [
         "Republicans", 
         "Democrats", 
-        "Independent", 
-        "Liberal"
+        "Independent"
     ];
 
     constructor(private http: HttpClient) { }
