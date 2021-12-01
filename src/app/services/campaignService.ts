@@ -16,14 +16,15 @@ export class CampaignService {
     constructor(private http: HttpClient) { }
 
     getCampaigns() {
-        return this.http.get<any>('assets/data/campaigns.json')
-      .toPromise()
-      .then(res => res.data as any[])
-      .then(data => data);  
-        //return API.get(this.apiName, `/campaigns`, {})
+    //     return this.http.get<any>('assets/data/campaigns.json')
+    //   .toPromise()
+    //   .then(res => res.data as any[])
+    //   .then(data => data);  
+        return API.get(this.apiName, `/campaigns`, {})
     }
 
     saveCampaign(campaign: Campaign){
+        console.log(campaign)
         return API.post(this.apiName, '/campaigns', {
             body: campaign
           })

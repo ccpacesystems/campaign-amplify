@@ -1,0 +1,42 @@
+{
+  "paths": [
+    {
+      "name": "/campaigns",
+      "lambdaFunction": "campaignapp157dd39d",
+      "privacy": {
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      },
+      "policyResourceName": "/campaigns"
+    }
+  ],
+  "resourceName": "campaignApi",
+  "apiName": "campaignApi",
+  "functionArns": [
+    {
+      "lambdaFunction": "campaignapp157dd39d"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 0,
+    "authRoleName": "amplify-campaignapp-dev-120135-authRole",
+    "unAuthRoleName": "amplify-campaignapp-dev-120135-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "campaignapp157dd39d",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

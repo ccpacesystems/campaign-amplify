@@ -75,52 +75,56 @@ export class CampaignsComponent implements OnInit {
         this.submitted = false;
     }
 
-    saveCampaign1() {
-        this.submitted = true;
-
-        if (this.campaign.name.trim()) {
-            if (this.campaign.id) {
-                this.campaigns[this.findIndexById(this.campaign.id)] = this.campaign;                
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaign Updated', life: 3000});
-            }
-            else {
-                this.campaign.id = uuid();
-                this.campaigns.push(this.campaign);
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaign Created', life: 3000});
-            }
-
-            this.campaigns = [...this.campaigns];
-            this.campaignDialog = false;
-            this.campaign = {};
-            }
-    }
-    
-    // saveCampaign() {
+    // saveCampaign1() {
     //     this.submitted = true;
 
     //     if (this.campaign.name.trim()) {
     //         if (this.campaign.id) {
-    //             this.campaigns[this.findIndexById(this.campaign.id)] = this.campaign;             
-    //             this.campaignService.saveCampaign(this.campaign).then(data => {                                    
-    //                 this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaign Updated', life: 3000});
-    //             }).catch(err => {
-    //                 console.log(err);
-    //               });                
+    //             this.campaigns[this.findIndexById(this.campaign.id)] = this.campaign;                
+    //             this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaign Updated', life: 3000});
     //         }
     //         else {
-    //             this.campaign.id = uuid();                
-    //             this.campaigns.push(this.campaign); 
-    //             this.campaignService.saveCampaign(this.campaign).then(data => {                                                          
-    //                 this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaign Created', life: 3000});
-    //             }).catch(err => {
-    //                 this.campaigns.pop();
-    //                 console.log(err);
-    //               });;                
+    //             this.campaign.id = uuid();
+    //             this.campaigns.push(this.campaign);
+    //             this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaign Created', life: 3000});
     //         }
+
+    //         this.campaigns = [...this.campaigns];
     //         this.campaignDialog = false;
     //         this.campaign = {};
-    //     }
+    //         }
     // }
+    
+    saveCampaign() {
+        this.submitted = true;
+
+        if (this.campaign.name.trim()) {
+            if (this.campaign.id) {
+                console.log("Update")
+                console.log(this.campaign.id)
+                this.campaigns[this.findIndexById(this.campaign.id)] = this.campaign;             
+                this.campaignService.saveCampaign(this.campaign).then(data => {                                    
+                    this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaign Updated', life: 3000});
+                }).catch(err => {
+                    console.log(err);
+                  });                
+            }
+            else {
+                console.log("Create")
+                this.campaign.id = uuid();                
+                this.campaigns.push(this.campaign); 
+                console.log(this.campaign.id)
+                this.campaignService.saveCampaign(this.campaign).then(data => {                                                          
+                    this.messageService.add({severity:'success', summary: 'Successful', detail: 'Campaign Created', life: 3000});
+                }).catch(err => {
+                    this.campaigns.pop();
+                    console.log(err);
+                  });;                
+            }
+            this.campaignDialog = false;
+            this.campaign = {};
+        }
+    }
 
     findIndexById(id: string): number {
         let index = -1;
